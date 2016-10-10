@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        if (navigator.geolocation){//判断浏览器是否支持
+            // navigator.geolocation.getCurrentPosition(sucFn,failFn);
+            //获取地理位置，拿到经纬度
+            navigator.geolocation.getCurrentPosition(function(ev){
+                alert('ok');
+            },function(){
+                alert('!ok')
+            });
+            navigator.geolocation.watchPosition(function(ev){
+                var msg=ev.coords;
+                for (var name in msg){
+                    document.write(name+':'+msg[name]+'<br/>');
+                }
+            },function(ev){
+                alert('失败');
+            })
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
